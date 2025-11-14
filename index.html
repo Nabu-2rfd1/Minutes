@@ -2,43 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pencil Morph → Infinite Pattern</title>
-  <meta name="description" content="Full-frame morph from pencil sketch to infinite pattern with a Lebanese cedar finale." />
+  <meta name="description" content="Minimal 9:16 embed of a YouTube Shorts video, with YouTube UI hidden as much as allowed." />
   <style>
-    /* Super-minimal, artsy: white background, black text */
+    /* Ultra-minimal: white background, black text */
     :root { --w: min(420px, 92vw); }
-    html, body { height: 100%; }
+    html, body { height: 100%; background: #fff; color: #000; }
     body {
       margin: 0;
-      background: #fff;
-      color: #000;
       font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      letter-spacing: .01em;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
     .wrap { max-width: 760px; margin: 5rem auto 6rem; padding: 0 20px; }
-    header h1 {
-      font-size: clamp(1.6rem, 2.5vw + 1rem, 2.2rem);
-      font-weight: 500;
-      text-transform: none;
-      margin: 0 0 0.35rem;
-    }
-    header p { margin: 0; opacity: .7; }
-    /* Vertical 9:16 frame with simple 1px border, no shadows, no radius */
+    h1 { font-size: clamp(1.4rem, 2.5vw + 1rem, 2rem); font-weight: 500; margin: 0 0 .35rem; }
+    p { margin: 0; opacity: .7; }
+    /* True 9:16 container with 1px border; overflow crops the 16:9 YouTube player so no side pillars show */
     .frame-9x16 {
       width: var(--w);
       aspect-ratio: 9 / 16;
-      margin: 2.2rem 0;
+      margin: 2rem 0;
       border: 1px solid #000;
+      overflow: hidden;
+      position: relative;
+      background: #000; /* while loading */
     }
+    /* The YouTube iframe is 16:9; to fill a 9:16 box without pillarboxing,
+       we fit by height and extend width to (16/9)^2 = 3.160... of the box width, then center it. */
     .frame-9x16 iframe {
-      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
       height: 100%;
-      display: block;
+      width: 316%;
+      transform: translateX(-50%);
       border: 0;
-      background: #000;
+      display: block;
     }
     .meta { opacity: .7; margin-top: .25rem; }
     a { color: #000; text-underline-offset: 2px; }
@@ -47,14 +47,12 @@
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>Pencil Morph → Infinite Pattern</h1>
-      <p>Hand‑drawn graphite, full‑frame morph, Lebanese cedar finale.</p>
-    </header>
+    <h1>Pencil Morph → Infinite Pattern</h1>
+    <p>Vertical 9:16, minimal UI.</p>
 
     <div class="frame-9x16" id="video">
       <iframe
-        src="https://www.youtube-nocookie.com/embed/mFZ_XO5hki8?rel=0&modestbranding=1&playsinline=1&loop=1&playlist=mFZ_XO5hki8"
+        src="https://www.youtube-nocookie.com/embed/mFZ_XO5hki8?playsinline=1&autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&loop=1&playlist=mFZ_XO5hki8&fs=0&disablekb=1&iv_load_policy=3"
         title="YouTube Shorts"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
