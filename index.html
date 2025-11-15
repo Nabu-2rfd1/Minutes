@@ -80,6 +80,12 @@
           border-bottom: 1px solid #000;
       padding-bottom: 2px;
     }
+    .logo {
+  display: block;
+  margin: 0 auto 16px;     /* centers + small gap below */
+  width: min(220px, 40vw); /* responsive max width */
+  height: auto;            /* keep aspect ratio */
+}
     .price { margin: 12px 0 0; opacity: .8; font-size: .95rem; }
     .link-plain { 
   color:#000;
@@ -105,6 +111,11 @@
 </head>
 <body>
   <main class="wrap">
+    <img
+  class="logo"
+  src="logo.png"
+  srcset="logo.png 1x, logo@2x.png 2x"   <!-- optional retina -->
+  alt="Jesch Contemporary">
     <div class="eyebrow">Jesch Contemporary<br>Presents</div>
     <h1>E. Haji-Touma</h1>
     <p class="byline"><em>Minutes of a Wandering Mind<em>, 2025 Series</p>
